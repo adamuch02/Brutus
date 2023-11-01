@@ -165,11 +165,32 @@ void get_scores(float* scores, float* relative_frequency)
 	}
 }
 
-void increment_character(wint_t* character, uint_fast8_t key)
+/*void increment_character(wint_t* character, uint_fast8_t key)
 {
 	*character += key;
 	if(((*character >= 91) && (*character <= 96)) || (*character >= 123))
 	{
 		*character -= 26;
 	}
+}*/
+
+void increment_character(wint_t* character, uint_fast8_t key)
+{
+	if(*character <= 90)
+	{
+		*character += key;
+		if(*character >= 91)
+		{
+			*character -= 26;
+		}
+	}
+	else
+	{
+		*character += key;
+		if(*character >= 123)
+		{
+			*character -= 26;
+		}
+	}
 }
+
